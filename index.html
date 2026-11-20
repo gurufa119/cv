@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M. Faisal Abduh, M.Pd. — Guru Matematika & Praktisi Teknologi Pembelajaran</title>
+    <meta
+      name="description"
+      content="Curriculum Vitae dan Portofolio Digital M. Faisal Abduh, M.Pd. — Guru Matematika SMA Negeri 1 Kersana, Trainer Teknologi Pembelajaran, dan Fasilitator Literasi Numerasi."
+    />
+    <meta property="og:title" content="M. Faisal Abduh, M.Pd. — CV & Portofolio Digital" />
+    <meta
+      property="og:description"
+      content="Pendidik matematika dengan dedikasi pada pemanfaatan teknologi digital untuk transformasi pendidikan dan literasi numerasi."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('cv-theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="antialiased selection:bg-rose-600 selection:text-white dark:selection:bg-sky-500 dark:selection:text-slate-950">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
