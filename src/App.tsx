@@ -205,8 +205,36 @@ export default function App() {
             })}
           </nav>
 
-          {/* Zone 3: Single Primary Action + Mobile Menu Trigger */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Zone 3: Theme, Fullscreen, Primary Action & Mobile Menu */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={isDark ? 'Ubah ke Mode Terang Pink' : 'Ubah ke Mode Gelap Navy'}
+              title={isDark ? 'Mode Terang' : 'Mode Gelap'}
+              className="p-2 rounded-lg border border-rose-200/80 dark:border-slate-700 bg-white/80 dark:bg-[#0b132b] hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            >
+              {isDark ? (
+                <Sun className="w-4 h-4 text-amber-300" />
+              ) : (
+                <Moon className="w-4 h-4 text-rose-700" />
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              aria-label={isFullscreen ? 'Keluar dari Mode Layar Penuh' : 'Masuk ke Mode Layar Penuh'}
+              title={isFullscreen ? 'Keluar Layar Penuh' : 'Layar Penuh'}
+              className="p-2 rounded-lg border border-rose-200/80 dark:border-slate-700 bg-white/80 dark:bg-[#0b132b] hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            >
+              {isFullscreen ? (
+                <Minimize2 className="w-4 h-4 text-rose-700 dark:text-sky-400" />
+              ) : (
+                <Maximize2 className="w-4 h-4 text-rose-700 dark:text-sky-400" />
+              )}
+            </button>
+
             <a
               href="#kontak"
               className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold bg-rose-700 hover:bg-rose-800 text-white dark:bg-sky-500 dark:hover:bg-sky-400 dark:text-slate-950 transition-colors whitespace-nowrap shrink-0"
@@ -298,7 +326,7 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Primary CTAs + Workspace Mode Controls */}
+                {/* Primary CTAs */}
                 <div className="space-y-4 pt-2">
                   <div className="flex flex-wrap items-center gap-3">
                     <a
@@ -315,49 +343,10 @@ export default function App() {
                     >
                       <span>Lihat Rekam Jejak</span>
                     </a>
-                  </div>
-
-                  {/* Theme, Fullscreen & Analytics Quick Controls */}
-                  <div className="flex flex-wrap items-center gap-2 pt-2">
-                    <button
-                      type="button"
-                      onClick={toggleTheme}
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold border border-rose-200 dark:border-slate-700 bg-white dark:bg-[#0b132b] hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-                    >
-                      {isDark ? (
-                        <>
-                          <Sun className="w-3.5 h-3.5 text-amber-300" />
-                          <span>Mode Terang (Rose)</span>
-                        </>
-                      ) : (
-                        <>
-                          <Moon className="w-3.5 h-3.5 text-rose-700" />
-                          <span>Mode Gelap (Navy)</span>
-                        </>
-                      )}
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={toggleFullscreen}
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold border border-rose-200 dark:border-slate-700 bg-white dark:bg-[#0b132b] hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-                    >
-                      {isFullscreen ? (
-                        <>
-                          <Minimize2 className="w-3.5 h-3.5 text-rose-700 dark:text-sky-400" />
-                          <span>Keluar Layar Penuh</span>
-                        </>
-                      ) : (
-                        <>
-                          <Maximize2 className="w-3.5 h-3.5 text-rose-700 dark:text-sky-400" />
-                          <span>Layar Penuh</span>
-                        </>
-                      )}
-                    </button>
 
                     <a
                       href="#analitik"
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold border border-rose-200 dark:border-slate-700 bg-white dark:bg-[#0b132b] hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0"
+                      className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs font-semibold border border-rose-200 dark:border-slate-700 bg-white/90 dark:bg-[#0b132b] hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0"
                     >
                       <BarChart3 className="w-3.5 h-3.5 text-rose-700 dark:text-sky-400" />
                       <span className="font-mono tabular-nums">
@@ -1020,47 +1009,23 @@ export default function App() {
             <a href="#analitik" className="hover:text-rose-800 dark:hover:text-white transition-colors">
               Analitik
             </a>
-            <a
-              href="#beranda"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-[#0b132b] border border-rose-200 dark:border-slate-800 hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors"
-            >
-              <span>Kembali ke Atas</span>
-              <ArrowUp className="w-3.5 h-3.5" />
+            <a href="#kontak" className="hover:text-rose-800 dark:hover:text-white transition-colors">
+              Kontak
             </a>
           </div>
         </div>
       </footer>
 
-      {/* Compact Floating Quick Controls (Theme + Fullscreen) */}
-      <div className="fixed bottom-5 right-5 z-40 flex items-center gap-2 p-1.5 rounded-xl bg-white/95 dark:bg-[#0b132b]/95 backdrop-blur-md border border-rose-200 dark:border-slate-700 shadow-lg">
-        <button
-          type="button"
-          onClick={toggleTheme}
-          aria-label={isDark ? 'Ubah ke Mode Terang Pink' : 'Ubah ke Mode Gelap Navy'}
-          title={isDark ? 'Mode Terang' : 'Mode Gelap'}
-          className="p-2.5 rounded-lg hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-        >
-          {isDark ? (
-            <Sun className="w-4 h-4 text-amber-300" />
-          ) : (
-            <Moon className="w-4 h-4 text-rose-700" />
-          )}
-        </button>
-
-        <button
-          type="button"
-          onClick={toggleFullscreen}
-          aria-label={isFullscreen ? 'Keluar dari Mode Layar Penuh' : 'Masuk ke Mode Layar Penuh'}
-          title={isFullscreen ? 'Keluar Layar Penuh' : 'Layar Penuh'}
-          className="p-2.5 rounded-lg hover:bg-rose-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-        >
-          {isFullscreen ? (
-            <Minimize2 className="w-4 h-4 text-rose-700 dark:text-sky-400" />
-          ) : (
-            <Maximize2 className="w-4 h-4 text-rose-700 dark:text-sky-400" />
-          )}
-        </button>
-      </div>
+      {/* Floating Scroll-to-Top Button (Bottom-Right) */}
+      <button
+        type="button"
+        onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+        aria-label="Naik ke atas halaman"
+        title="Naik ke Atas"
+        className="fixed bottom-5 right-5 z-40 inline-flex items-center justify-center w-11 h-11 rounded-full bg-rose-700 hover:bg-rose-800 text-white dark:bg-sky-500 dark:hover:bg-sky-400 dark:text-slate-950 shadow-lg border border-rose-800/20 dark:border-sky-300/30 transition-transform hover:-translate-y-0.5 cursor-pointer"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
 
       {/* Interactive Project Detail Modal */}
       <ProjectModal
